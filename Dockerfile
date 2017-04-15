@@ -2,7 +2,7 @@ FROM resin/armv7hf-debian:jessie
 
 # Install deps
 RUN apt-get update
-RUN apt-get install liblivemedia-dev liblog4cpp5-dev git cmake gcc g++ make libasound2-dev kmod
+RUN apt-get install liblivemedia-dev liblog4cpp5-dev git cmake gcc g++ make libasound2-dev kmod v4l-utils
 RUN rm -rf /var/lib/apt/lists/*
 
 # Install v4l2rtspserver
