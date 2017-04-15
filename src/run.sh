@@ -18,4 +18,4 @@ if [ -n "$CAMERA_ROTATE" ]; then
 fi
 
 log "Start app..."
-/app/v4l2rtspserver/v4l2rtspserver -F 30 -W 1280 -H 720 -P 8555 /dev/video0
+/app/v4l2rtspserver/v4l2rtspserver -F 30 -W 1920 -H 1080 -P 8555 /dev/video0
