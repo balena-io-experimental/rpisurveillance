@@ -18,7 +18,7 @@ popd > /dev/null 2>&1
 
 . $SCRIPTPATH/helpers.sh
 
-if modprobe -n --first-time $V4L2_KMOD; then
+if modprobe -n --first-time $V4L2_KMOD &> /dev/null; then
     log "Load kernel module $V4L2_KMOD..."
     modprobe $V4L2_KMOD
 else
