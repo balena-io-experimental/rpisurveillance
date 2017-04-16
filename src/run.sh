@@ -49,5 +49,5 @@ until [ -z "$(netstat | grep $RTSP_PORT | grep TIME_WAIT)" ]; do
     fi
 done
 
-log "Start app..."
+log "Start RTSP server..."
 /app/v4l2rtspserver/v4l2rtspserver -F $FRAMERATE -W $V4L2_W -H $V4L2_H -P $RTSP_PORT /dev/video0
