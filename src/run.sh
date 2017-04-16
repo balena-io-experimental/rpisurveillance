@@ -2,6 +2,8 @@
 
 set -e
 
+V4L2_KMOD="bcm2835-v4l2"
+
 # Configurable parameters
 CAMERA_ROTATE=${CAMERA_ROTATE:-0}
 RTSP_PORT=${RTSP_PORT:-8555}
@@ -16,12 +18,11 @@ popd > /dev/null 2>&1
 
 . $SCRIPTPATH/helpers.sh
 
-log "Load kernel module..."
-modprobe bcm2835-v4l2
-
-if [ -n "$CAMERA_ROTATE" ]; then
-    log "Rotate to $CAMERA_ROTATE..."
-    v4l2-ctl --set-ctrl rotate="$CAMERA_ROTATE"
+if modprobe -n --first-time $V4L2_KMOD; then
+    log "Load kernel module $V4L2_KMOD..."
+    modprobe $V4L2_KMOD
+else
+    log "Kernel module $V4L2_KMOD already loaded..."
 fi
 
 # Did the last run left hanging sockets?
