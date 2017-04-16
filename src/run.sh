@@ -25,6 +25,9 @@ else
     log "Kernel module $V4L2_KMOD already loaded..."
 fi
 
+log "Rotate to $CAMERA_ROTATE..."
+v4l2-ctl --set-ctrl rotate="$CAMERA_ROTATE"
+
 # Did the last run left hanging sockets?
 if [ -z "$TIME_WAIT_INTERVAL" ]; then
     if [ -f "/proc/sys/net/ipv4/tcp_fin_timeout" ]; then
