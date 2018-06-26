@@ -1,4 +1,4 @@
-FROM resin/armv7hf-debian:jessie
+FROM resin/%%RESIN_MACHINE_NAME%%-debian:jessie
 
 # Install deps
 RUN apt-get update
